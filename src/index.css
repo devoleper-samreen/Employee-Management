@@ -10,5 +10,9 @@ body {
     background-color: #111111;
     max-width: 1100px;
     margin: auto;
-    padding: 0;
+    padding: 15px;
+}
+
+#task-list::-webkit-scrollbar {
+    display: none;
 }
