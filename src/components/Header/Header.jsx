@@ -6,7 +6,7 @@ function Header() {
             <div className='text-xl'>Hello <br /><span className='text-amber-500 text-3xl font-bold'>Sarthak 👋</span>
             </div>
             <div>
-                <button className='bg-blue-500 px-8 py-3 text-center rounded font-bold text-lg'>logout</button>
+                <button className='bg-blue-500 px-8 py-3 text-center rounded font-bold text-lg cursor-pointer'>logout</button>
             </div>
         </div>
     )
