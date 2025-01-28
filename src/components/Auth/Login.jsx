@@ -13,12 +13,10 @@ const Login = () => {
 
         setEmail('');
         setPassword("");
-
-
-
     }
+
     return (
-        <form onSubmit={submitHandler} className="flex items-center justify-center h-screen w-full px-5 sm:px-0">
+        <form onSubmit={submitHandler} className="flex items-center justify-center h-screen w-full px-5 sm:px-0 text-white">
             <div className="flex bg-[#272727] rounded-lg shadow-lg overflow-hidden max-w-sm lg:max-w-4xl w-full">
                 <div
                     className="hidden md:block lg:w-1/2 bg-cover bg-blue-700"
@@ -29,15 +27,15 @@ const Login = () => {
 
                 </div>
                 <div className="w-full p-8 lg:w-1/2">
-                    <p className="text-xl text-gray-600 text-center">Welcome back!</p>
+                    <p className="text-xl text-white text-center text-extrabold">Welcome back!</p>
                     <div className="mt-4">
                         <div className="flex justify-between">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                            <label className="block text-sm font-bold mb-2">
                                 Email Address
                             </label>
                         </div>
                         <input
-                            className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
+                            className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="email"
                             placeholder="Enter Email here"
                             required
@@ -47,12 +45,12 @@ const Login = () => {
                     </div>
                     <div className="mt-4 flex flex-col justify-between">
                         <div className="flex justify-between">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                            <label className="text-bold text-sm font-bold mb-2">
                                 Password
                             </label>
                         </div>
                         <input
-                            className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
+                            className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="password"
                             placeholder="Enter password here"
                             required
@@ -61,7 +59,7 @@ const Login = () => {
                         />
                         <Link
 
-                            className="text-xs text-gray-500 hover:text-gray-900 text-end w-full mt-2"
+                            className="text-xs hover:text-gray-900 text-end w-full mt-2"
                         >
                             Forget Password?
                         </Link>

@@ -4,16 +4,24 @@ import Login from "./pages/Login"
 import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/AdminOthers/CreateTaskForm"
+import { useEffect } from 'react'
+import { getAuthData, setAuthData } from './utils/localStorage'
 
 function App() {
+  useEffect(
+    () => {
+      setAuthData();
+      getAuthData()
+    }, []
+  )
 
   return (
     <>
       <Router>
         <Routes>
-          {/* <Route path='/' element={<Login />} /> */}
-          {/* <Route path='/' element={<EmplyeeDashboardPage />} /> */}
-          <Route path='/' element={<AdminDashboardpage />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/emplyee-dashboard' element={<EmplyeeDashboardPage />} />
+          <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
           <Route path='/create-task' element={<CreateTaskForm />} />
         </Routes>
       </Router>
