@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path='/emplyee-dashboard' element={<EmplyeeDashboardPage />} />
+          <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
           <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
           <Route path='/create-task' element={<CreateTaskForm />} />
         </Routes>

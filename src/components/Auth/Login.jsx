@@ -1,18 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuthData } from "../../utils/localStorage";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log("submitted!");
-        console.log('email is : ', email);
-        console.log('password is :', password);
+
+        const AllEmplyee = getAuthData();
+
+        const employee = AllEmplyee.find(employee => employee.email === email && employee.password === password);
+
+        if (employee && employee.role == 'employee') {
+
+            navigate("/employee-dashboard")
+        } else if (employee && employee.role == 'admin') {
+            navigate("/admin-dashboard")
+        }
+        else {
+            console.log("user not found");
+        }
 
         setEmail('');
-        setPassword("");
+        setPassword('');
     }
 
     return (
