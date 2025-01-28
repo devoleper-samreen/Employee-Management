@@ -70,15 +70,15 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <Link
+                        {/* <Link
 
                             className="text-xs hover:text-gray-900 text-end w-full mt-2"
                         >
                             Forget Password?
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className="mt-8">
-                        <button type='submit' className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 cursor-pointer">
+                        <button type='submit' className="bg-blue-700 text-white font-bold py-3 my-4 px-4 w-full rounded hover:bg-blue-600 cursor-pointer">
                             Login
                         </button>
                     </div>
@@ -114,14 +114,14 @@ const Login = () => {
                             </div>
                         </div>
                     </Link>
-                    <div className="mt-4 flex items-center w-full text-center">
+                    {/* <div className="mt-4 flex items-center w-full text-center">
                         <Link
                             className="text-xs text-gray-500 capitalize text-center w-full"
                         >
                             Don&apos;t have any account yet?
                             <span className="text-blue-700"> Sign Up</span>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </form>
