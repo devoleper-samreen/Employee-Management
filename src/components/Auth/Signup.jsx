@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { getAuthData, setAuthData } from "../../utils/authLocalStorage"
+import toast from "react-hot-toast";
 
 const Signup = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [role, setRole] = useState("");
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const { register, handleSubmit, reset } = useForm()
+
+    const onSubmit = (data) => {
+        const users = getAuthData()
+        const userExist = users.some((user) => user.email == data.email)
+
+        if (userExist) {
+            toast.error("Email already exist...")
+            return
+        }
+
+        const newUser = {
+            id: Date.now(),
+            ...data
+        }
+
+        users.push(newUser)
+        setAuthData(users)
+        toast.success("User create successfully!")
+        reset()
+        navigate('/')
+
+    }
 
     return (
-        <form className="flex items-center justify-center h-screen w-full px-5 sm:px-0 text-white">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex items-center justify-center h-screen w-full px-5 sm:px-0 text-white">
             <div className="flex bg-[#272727] rounded-lg shadow-lg overflow-hidden max-w-sm lg:max-w-4xl w-full">
                 <div className="hidden md:block lg:w-1/2 bg-cover bg-blue-700"
                     style={{
@@ -23,9 +45,8 @@ const Signup = () => {
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="text"
                             placeholder="Enter full name"
-                            required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            {...register("name", { required: true })}
+
                         />
                     </div>
                     <div className="mt-6">
@@ -33,9 +54,14 @@ const Signup = () => {
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="email"
                             placeholder="Enter email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            {...register("email", {
+                                required: true,
+                                pattern: {
+                                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                    message: "Enter a valid email address"
+                                }
+                            })}
+
                         />
                     </div>
                     <div className="mt-6">
@@ -43,16 +69,23 @@ const Signup = () => {
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="password"
                             placeholder="Enter password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            {...register("password", {
+                                required: true,
+                                minLength: {
+                                    value: 8,
+                                    message: "Password must have at least 8 character longer"
+                                }
+                            })}
+
                         />
                     </div>
                     <div className="mt-6">
                         <select
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700 focus:outline-none bg-[#272727]"
-                            value={role}
-                            onChange={(e) => setRole(e.target.value)}
+                            {...register("role", {
+                                required: true
+                            })}
+
                         >
                             <option value="">Select Role</option>
                             <option className="bg-[#272727] text-white" value="employee">Employee</option>

@@ -5,19 +5,23 @@ import Signup from './components/auth/Signup'
 import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/admin/CreateTaskForm"
+import { Toaster } from "react-hot-toast"
 
 function App() {
 
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
-        <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
-        <Route path='/create-task' element={<CreateTaskForm />} />
-      </Routes>
-    </Router>
+    <>
+      <Toaster position='top-center' reverseOrder={false} />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
+          <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
+          <Route path='/create-task' element={<CreateTaskForm />} />
+        </Routes>
+      </Router>
+    </>
   )
 }
 
