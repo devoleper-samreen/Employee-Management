@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { setCreateTask } from '../../utils/adminLocalStorage'
 
 function CreateTaskForm() {
     const [task, setTask] = useState({
@@ -10,24 +9,9 @@ function CreateTaskForm() {
         category: ""
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setTask({
-            title: e.target.title.value,
-            description: e.target.description.value,
-            date: e.target.date.value,
-            assignTo: e.target.assignTo.value,
-            category: e.target.category.value
-
-        })
-        setCreateTask(task)
-        console.log(task);
-
-    }
-
     return (
         <div className="w-full flex flex-col justify-center items-center">
-            <form onSubmit={handleSubmit} className="w-full md:w-[600px] mt-10 md:mt-0 py-4 md:py-2 flex flex-col items-center gap-3 ">
+            <form className="w-full md:w-[600px] mt-10 md:mt-0 py-4 md:py-2 flex flex-col items-center gap-3 ">
                 <h1 className="text-4xl font-bold mt-6">Create Task</h1>
 
                 <div className="flex flex-col w-full">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Header/Header'
-import TaskListCount from '../EmplyeeOthers/TaskCount/TaskListCount'
-import TaskListCard from '../EmplyeeOthers/TaskListCard/TaskListCard'
+import TaskListCount from '../employee/TaskListCount'
+import TaskListCard from '../employee/TaskListCard'
 
 function EmplyeeDashboard() {
     return (

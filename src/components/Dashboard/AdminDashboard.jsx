@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header/Header"
-import AllTask from "../AdminOthers/AllTask";
+import AllTask from "../admin/AllTask";
 
 const AdminDashboard = () => {
 

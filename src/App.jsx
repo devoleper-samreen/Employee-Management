@@ -1,32 +1,23 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from "./pages/Login"
+import Signup from './components/auth/Signup'
 import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
-import CreateTaskForm from "./components/AdminOthers/CreateTaskForm"
-import { useEffect } from 'react'
-import { getAuthData, setAuthData } from './utils/authLocalStorage'
+import CreateTaskForm from "./components/admin/CreateTaskForm"
 
 function App() {
-  useEffect(
-    () => {
-      setAuthData();
-      getAuthData()
-    }, []
-  )
 
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
-          <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
-          <Route path='/create-task' element={<CreateTaskForm />} />
-        </Routes>
-      </Router>
-
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
+        <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
+        <Route path='/create-task' element={<CreateTaskForm />} />
+      </Routes>
+    </Router>
   )
 }
 
