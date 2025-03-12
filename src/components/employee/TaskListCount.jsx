@@ -11,8 +11,8 @@ function TaskListCount() {
                 <h1 className='text-3xl font-bold'>{count}</h1>
                 <h2 className='text-2xl font-bold'>new task</h2>
             </div>
-            <div className='w-[46%] md:w-[31%] h-32 md:h-32 rounded-lg bg-yellow-500'>1</div>
-            <div className='w-[46%] md:w-[31%] h-32 md:h-32 rounded-lg bg-red-700'>1</div>
+            <div className='w-[46%] md:w-[31%] h-32 md:h-32 rounded-lg bg-yellow-500'>Pending task</div>
+            <div className='w-[46%] md:w-[31%] h-32 md:h-32 rounded-lg bg-red-700'>Completed task</div>
         </div>
     )
 }

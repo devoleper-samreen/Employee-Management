@@ -63,7 +63,7 @@ function CreateTaskForm() {
 
                 <div className="flex flex-col w-full">
                     <label htmlFor="date" className="text-xl font-bold mb-6 mt-8 pl-3 md:pl-0.5">
-                        Date
+                        Assign Date
                     </label>
                     <input id="date" type="date"
                         className="w-full px-4
@@ -86,6 +86,25 @@ function CreateTaskForm() {
                             required: true
                         })}
                     />
+                </div>
+
+                <div className="flex flex-col w-full">
+                    <label htmlFor="assign-to" className="text-xl font-bold mb-6 mt-8 pl-3 md:pl-0.5">
+                        Priority
+                    </label>
+                    <select
+                        className="w-full px-4
+                         py-4 bg-gray-700 rounded focus:outline-2 focus:outline-blue-700 focus:outline-none"
+                        {...register("priority", {
+                            required: true
+                        })}
+
+                    >
+                        <option value="">Priority</option>
+                        <option className="bg-[#272727] text-white" value="employee">High</option>
+                        <option className="bg-[#272727] text-white" value="admin">Meduim</option>
+                        <option className="bg-[#272727] text-white" value="admin">Low</option>
+                    </select>
                 </div>
 
                 <button type="submit" className="bg-amber-700 px-4 py-3 mt-8 mb-3 w-full cursor-pointer">Create Task</button>

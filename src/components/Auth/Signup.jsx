@@ -26,7 +26,7 @@ const Signup = () => {
         setAuthData(users)
         toast.success("User create successfully!")
         reset()
-        navigate('/')
+        navigate('/login')
 
     }
 
@@ -98,7 +98,7 @@ const Signup = () => {
                         </button>
                     </div>
                     <div className="mt-4 flex items-center w-full text-center">
-                        <Link to='/'
+                        <Link to='/login'
                             className="text-xs text-gray-200 capitalize text-center w-full">
                             Already have an account? {" "} <span className="text-blue-700 text-[14px]">Login</span>
                         </Link>
