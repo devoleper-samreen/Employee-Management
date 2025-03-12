@@ -1,12 +1,31 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { setTask, getTasks } from "../../utils/adminLocalStorage"
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
+import useTaskStore from "../../store/taskStore"
 
 function CreateTaskForm() {
+    const navigate = useNavigate()
+    const { addTask } = useTaskStore()
     const { register, handleSubmit, reset } = useForm()
 
     const onSubmit = (data) => {
         console.log("data: ", data);
+        const tasks = getTasks()
 
+        const newTask = {
+            id: Date.now(),
+            ...data
+        }
+
+        tasks.push(newTask)
+        setTask(tasks)
+        addTask(tasks)
+
+        reset()
+        toast.success("Task created successfully!")
+        navigate('/dashboard/admin')
 
     }
 
@@ -63,7 +82,7 @@ function CreateTaskForm() {
                         placeholder="Assign to"
                         className="w-full px-4
                          py-4 bg-gray-700 rounded"
-                        {...register("assign-to", {
+                        {...register("assignTo", {
                             required: true
                         })}
                     />

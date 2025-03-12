@@ -15,17 +15,11 @@ const Login = () => {
         console.log("Login Data : ", data);
         const users = getAuthData()
         const user = users.find((user) => user.email == data.email)
-        console.log("full user", user);
 
         if (!user) {
             toast.error("Email not registered!")
             return
         }
-
-        console.log("user password : ", user.password);
-        console.log("data password : ", data.password);
-
-
 
         if (user.password != data.password) {
             toast.error("Password not correct!")
@@ -33,10 +27,9 @@ const Login = () => {
         }
 
         login(user)
-        const role = user.role
         reset()
         toast.success("Login sucessfully!")
-        navigate(`/dashboard/${role}`)
+        navigate(`/dashboard/${user.role}`)
     }
 
     return (

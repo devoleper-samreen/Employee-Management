@@ -20,8 +20,11 @@ function App() {
           <Route path='/signup' element={<Signup />} />
 
           {/* protected route */}
-          <Route element={<ProtectedRoute />} >
+          <Route element={<ProtectedRoute />}>
             <Route path={`/dashboard/employee`} element={<EmplyeeDashboardPage />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
             <Route path={`/dashboard/admin`} element={<AdminDashboardpage />} />
             <Route path='/create-task' element={<CreateTaskForm />} />
           </Route>
