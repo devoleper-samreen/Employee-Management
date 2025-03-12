@@ -8,6 +8,7 @@ import useAuthStore from "../../store/authStore"
 const Login = () => {
     const navigate = useNavigate();
     const { login } = useAuthStore()
+
     const { register, handleSubmit, reset } = useForm()
 
     const onSubmit = (data) => {
@@ -16,10 +17,11 @@ const Login = () => {
         const user = users.find((user) => user.email == data.email)
         console.log("full user", user);
 
-
         if (!user) {
             toast.error("Email not registered!")
+            return
         }
+
         console.log("user password : ", user.password);
         console.log("data password : ", data.password);
 
@@ -27,6 +29,7 @@ const Login = () => {
 
         if (user.password != data.password) {
             toast.error("Password not correct!")
+            return
         }
 
         login(user)
