@@ -1,13 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { getAuthData } from "../../utils/authLocalStorage"
+import toast from "react-hot-toast";
+import useAuthStore from "../../store/authStore"
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { login } = useAuthStore()
+    const { register, handleSubmit, reset } = useForm()
+
+    const onSubmit = (data) => {
+        console.log("Login Data : ", data);
+        const users = getAuthData()
+        const user = users.find((user) => user.email == data.email)
+        console.log("full user", user);
+
+
+        if (!user) {
+            toast.error("Email not registered!")
+        }
+        console.log("user password : ", user.password);
+        console.log("data password : ", data.password);
+
+
+
+        if (user.password != data.password) {
+            toast.error("Password not correct!")
+        }
+
+        login(user)
+        const role = user.role
+        reset()
+        toast.success("Login sucessfully!")
+        navigate(`/dashboard/${role}`)
+    }
 
     return (
-        <form className="flex items-center justify-center h-screen w-full px-5 sm:px-0 text-white">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex items-center justify-center h-screen w-full px-5 sm:px-0 text-white">
             <div className="flex bg-[#272727] rounded-lg shadow-lg overflow-hidden max-w-sm lg:max-w-4xl w-full">
                 <div
                     className="hidden md:block lg:w-1/2 bg-cover bg-blue-700"
@@ -29,9 +59,9 @@ const Login = () => {
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="email"
                             placeholder="Enter Email here"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            {...register("email", {
+                                required: true
+                            })}
                         />
                     </div>
                     <div className="mt-4 flex flex-col justify-between">
@@ -44,9 +74,9 @@ const Login = () => {
                             className="border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
                             type="password"
                             placeholder="Enter password here"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            {...register("password", {
+                                required: true
+                            })}
                         />
                     </div>
                     <div className="mt-8">

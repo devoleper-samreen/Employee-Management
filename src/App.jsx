@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/employee-dashboard' element={<EmplyeeDashboardPage />} />
-          <Route path='/admin-dashboard' element={<AdminDashboardpage />} />
+          <Route path={`/dashboard/employee`} element={<EmplyeeDashboardPage />} />
+          <Route path={`/dashboard/admin`} element={<AdminDashboardpage />} />
           <Route path='/create-task' element={<CreateTaskForm />} />
         </Routes>
       </Router>
