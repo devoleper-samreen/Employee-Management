@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 
 function AllTask() {
     return (
-        <div className='w-full flex flex-col md:flex-row bg-amber-600 my-16 p-3 items-center justify-start gap-5 flex-wrap'>
-            <div className='w-full md:w-[320px] bg-red-800 md:h-28 rounded-lg p-4 flex items-center justify-center cursor-pointer'>
-                <Link to='/create-task'>
-                    <button className='text-2xl font-bold'>
+        <div className='w-full flex flex-col md:flex-row my-16 p-3 items-center justify-start gap-5 flex-wrap'>
+            <Link to={'/create-task'} className='w-full md:w-[320px]'>
+                <div className='w-full md:w-[320px] bg-red-800 md:h-28 rounded-lg p-4 flex items-center justify-center cursor-pointer'>
+
+                    <button className='text-2xl font-bold cursor-pointer'>
                         Create Task
                     </button>
-                </Link>
-            </div>
+
+                </div>
+            </Link>
 
             <div className='w-full md:w-[320px] bg-blue-700 rounded-lg p-4'>
                 <div className='flex items-center justify-between'>

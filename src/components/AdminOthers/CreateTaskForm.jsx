@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { setCreateTask } from '../../utils/adminLocalStorage'
 
 function CreateTaskForm() {
+    const [task, setTask] = useState({
+        title: "",
+        description: "",
+        date: "",
+        assignTo: "",
+        category: ""
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setTask({
+            title: e.target.title.value,
+            description: e.target.description.value,
+            date: e.target.date.value,
+            assignTo: e.target.assignTo.value,
+            category: e.target.category.value
+
+        })
+        setCreateTask(task)
+        console.log(task);
+
+    }
+
     return (
         <div className="w-full flex flex-col justify-center items-center">
-            <form className="w-full md:w-[600px] mt-10 md:mt-0 py-4 md:py-2 flex flex-col items-center gap-3 ">
+            <form onSubmit={handleSubmit} className="w-full md:w-[600px] mt-10 md:mt-0 py-4 md:py-2 flex flex-col items-center gap-3 ">
                 <h1 className="text-4xl font-bold mt-6">Create Task</h1>
 
                 <div className="flex flex-col w-full">
@@ -12,7 +36,10 @@ function CreateTaskForm() {
                     </label>
                     <input id="title" type="text" placeholder="Enter Task title"
                         className="w-full px-4
-                         py-4 bg-gray-700 rounded" />
+                         py-4 bg-gray-700 rounded"
+                        value={task.title}
+                        onChange={(e) => setTask(task.title == e.target.value)}
+                    />
                 </div>
 
                 <div className="flex flex-col w-full">
@@ -22,7 +49,10 @@ function CreateTaskForm() {
                     <textarea id="description" type="text" placeholder="Enter Task title"
                         rows='5'
                         className="w-full px-4
-                         py-4 bg-gray-700 rounded" />
+                         py-4 bg-gray-700 rounded"
+                        value={task.description}
+                        onChange={(e) => setTask(task.description == e.target.value)}
+                    />
                 </div>
 
                 <div className="flex flex-col w-full">
@@ -31,7 +61,10 @@ function CreateTaskForm() {
                     </label>
                     <input id="date" type="date"
                         className="w-full px-4
-                         py-4 bg-gray-700 rounded" />
+                         py-4 bg-gray-700 rounded"
+                        value={task.date}
+                        onChange={(e) => setTask(task.date == e.target.value)}
+                    />
                 </div>
 
                 <div className="flex flex-col w-full">
@@ -41,7 +74,10 @@ function CreateTaskForm() {
                     <input id="assign-to" type="text"
                         placeholder="Assign to"
                         className="w-full px-4
-                         py-4 bg-gray-700 rounded" />
+                         py-4 bg-gray-700 rounded"
+                        value={task.assignTo}
+                        onChange={(e) => setTask(task.assignTo == e.target.value)}
+                    />
                 </div>
 
                 <div className="flex flex-col w-full">
@@ -51,7 +87,11 @@ function CreateTaskForm() {
                     <input id="category" type="text"
                         placeholder="Category"
                         className="w-full px-4
-                         py-4 bg-gray-700 rounded" />
+                         py-4 bg-gray-700 rounded"
+                        value={task.category}
+                        onChange={(e) => setTask(task.category == e.target.value)}
+
+                    />
                 </div>
 
                 <button type="submit" className="bg-amber-700 px-4 py-3 mt-8 mb-3 w-full">Create Task</button>

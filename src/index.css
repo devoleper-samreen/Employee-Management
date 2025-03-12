@@ -13,6 +13,6 @@ body {
     padding: 15px;
 }
 
-#task-list::-webkit-scrollbar {
+/* #task-list::-webkit-scrollbar {
     display: none;
-}
+} */

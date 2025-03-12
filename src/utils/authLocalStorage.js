@@ -37,15 +37,6 @@ const employee = [
     }
 ];
 
-const admin = [
-    {
-        "id": 100,
-        "email": "admin@example.com",
-        "password": "admin123",
-        "role": "admin"
-    }
-]
-
 
 export const setAuthData = () => {
     localStorage.setItem("employee", JSON.stringify(employee));
@@ -57,13 +48,5 @@ export const getAuthData = () => {
     return data;
 }
 
-// export const setAdminAuthData = () => {
-//     localStorage.setItem("admin", JSON.stringify(admin));
-// }
 
-// export const getAdminAuthData = () => {
-//     const data = JSON.parse(localStorage.getItem("admin"));
-//     console.log(data);
-//     return data;
-// }
 

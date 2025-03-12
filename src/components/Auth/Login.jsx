@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuthData } from "../../utils/localStorage";
+import { getAuthData } from "../../utils/authLocalStorage";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
             navigate("/admin-dashboard")
         }
         else {
-            console.log("user not found");
+            alert("You Are Not A User")
         }
 
         setEmail('');
@@ -70,12 +70,6 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        {/* <Link
-
-                            className="text-xs hover:text-gray-900 text-end w-full mt-2"
-                        >
-                            Forget Password?
-                        </Link> */}
                     </div>
                     <div className="mt-8">
                         <button type='submit' className="bg-blue-700 text-white font-bold py-3 my-4 px-4 w-full rounded hover:bg-blue-600 cursor-pointer">

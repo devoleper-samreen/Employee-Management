@@ -5,7 +5,7 @@ import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/AdminOthers/CreateTaskForm"
 import { useEffect } from 'react'
-import { getAuthData, setAuthData } from './utils/localStorage'
+import { getAuthData, setAuthData } from './utils/authLocalStorage'
 
 function App() {
   useEffect(
