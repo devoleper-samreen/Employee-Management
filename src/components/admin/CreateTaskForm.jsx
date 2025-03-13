@@ -1,6 +1,5 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { setTask, getTasks } from "../../utils/adminLocalStorage"
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import useTaskStore from "../../store/taskStore"
@@ -12,14 +11,18 @@ function CreateTaskForm() {
 
     const onSubmit = (data) => {
         console.log("data: ", data);
-        const tasks = getTasks() || []
+        const tasks = JSON.parse(localStorage.getItem("Task")) || []
 
         const newTask = {
             id: Date.now(),
             ...data
         }
 
-        setTask([...tasks, newTask]);
+        const storedTasks = JSON.parse(localStorage.getItem("Task")) || [];
+        storedTasks.push(newTask);
+
+        localStorage.setItem("Task", JSON.stringify(storedTasks));
+
         addTask([...tasks, newTask]);
 
         reset()
