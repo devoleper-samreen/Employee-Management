@@ -12,16 +12,15 @@ function CreateTaskForm() {
 
     const onSubmit = (data) => {
         console.log("data: ", data);
-        const tasks = getTasks()
+        const tasks = getTasks() || []
 
         const newTask = {
             id: Date.now(),
             ...data
         }
 
-        tasks.push(newTask)
-        setTask(tasks)
-        addTask(tasks)
+        setTask([...tasks, newTask]);
+        addTask([...tasks, newTask]);
 
         reset()
         toast.success("Task created successfully!")

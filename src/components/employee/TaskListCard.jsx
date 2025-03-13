@@ -62,7 +62,12 @@ function TaskDashboard() {
                 {myTask.map((task, i) => (
                     <div key={i} className="w-[350px] bg-gray-800 text-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
                         <div className="flex justify-between items-center mb-4">
-                            <button className="bg-red-500 px-4 py-1 rounded-lg text-white font-semibold">
+                            <button
+                                className={`px-4 py-1 rounded-lg text-white font-semibold ${task.priority === "High" ? "bg-red-500" :
+                                    task.priority === "Medium" ? "bg-orange-500" :
+                                        "bg-green-500"
+                                    }`}
+                            >
                                 {task.priority || "High"}
                             </button>
                             <p className="text-gray-300">{task.date}</p>

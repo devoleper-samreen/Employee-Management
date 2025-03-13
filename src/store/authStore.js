@@ -6,7 +6,10 @@ const useAuthStore = create(
         (set) => ({
             user: null,
             login: (userData) => set({ user: userData }),
-            logout: () => set({ user: null })
+            logout: () => {
+                localStorage.removeItem("Auth-storage"); // LocalStorage se bhi hatao
+                set({ user: null });
+            },
         }),
         {
             name: "Auth-storage",

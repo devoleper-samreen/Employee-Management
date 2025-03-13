@@ -3,7 +3,7 @@ import { getTasks } from "../utils/employeeLocalStorage"
 
 const useEmployeeTaskStore = create(
     (set, get) => ({
-        myTasks: getTasks(),
+        myTasks: getTasks() || [],
         addMyTask: (allTasks) => {
             const currentTasks = get().myTasks;
 
