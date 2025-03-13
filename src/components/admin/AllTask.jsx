@@ -20,8 +20,8 @@ function AllTask() {
             </Link>
 
             {
-                tasks?.map((task) => {
-                    return <div className='w-full md:w-[320px] bg-blue-700 rounded-lg p-4'>
+                tasks?.map((task, i) => {
+                    return <div key={i} className='w-full md:w-[320px] bg-blue-700 rounded-lg p-4'>
                         <div className='flex items-center justify-between'>
                             <p className='text-xl font-bold'>{task?.assignTo}</p>
                             <p className='bg-amber-900 px-3 py-1 rounded-lg'>status</p>

@@ -101,9 +101,9 @@ function CreateTaskForm() {
 
                     >
                         <option value="">Priority</option>
-                        <option className="bg-[#272727] text-white" value="employee">High</option>
-                        <option className="bg-[#272727] text-white" value="admin">Meduim</option>
-                        <option className="bg-[#272727] text-white" value="admin">Low</option>
+                        <option className="bg-[#272727] text-white" value="High">High</option>
+                        <option className="bg-[#272727] text-white" value="Medium">Meduim</option>
+                        <option className="bg-[#272727] text-white" value="Low">Low</option>
                     </select>
                 </div>
 

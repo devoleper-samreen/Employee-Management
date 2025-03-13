@@ -7,6 +7,7 @@ import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/admin/CreateTaskForm"
 import { Toaster } from "react-hot-toast"
 import ProtectedRoute from "./protected/ProtectedRoute"
+import HomePage from "./pages/Home"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Router>
         <Routes>
           {/* public route */}
+          <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
 

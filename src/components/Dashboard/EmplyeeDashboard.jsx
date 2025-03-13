@@ -1,15 +1,12 @@
 import React from 'react'
 import Header from '../Header/Header'
-import TaskListCount from '../employee/TaskListCount'
-import TaskListCard from '../employee/TaskListCard'
+import TaskDashboard from '../employee/TaskListCard'
 
 function EmplyeeDashboard() {
     return (
         <div className='w-full'>
             <Header />
-            <TaskListCount />
-            <TaskListCard />
-
+            <TaskDashboard />
         </div>
     )
 }
