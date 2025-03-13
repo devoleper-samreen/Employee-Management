@@ -16,7 +16,7 @@ function TaskDashboard() {
     useEffect(() => {
         const assignedTasks = tasks.filter((task) => user?.name === task.assignTo);
         setMyTask(assignedTasks);
-        localStorage.setItem("Task", JSON.stringify(assignedTasks));
+        // localStorage.setItem("Task", JSON.stringify(assignedTasks));
         addMyTask(assignedTasks);
     }, [tasks, user, addMyTask]);
 
@@ -34,9 +34,11 @@ function TaskDashboard() {
         setAcceptedTasks(updatedAcceptedTasks);
         localStorage.setItem("acceptedTasks", JSON.stringify(updatedAcceptedTasks));
 
-        const updatedTasks = myTask.filter((task) => task.id !== id);
-        setMyTask(updatedTasks);
-        localStorage.setItem("Task", JSON.stringify(updatedTasks));
+        setMyTask((prevTasks) => prevTasks.filter((task) => task.id !== id));
+
+        const storedTasks = JSON.parse(localStorage.getItem("Task")) || [];
+        const filteredTasks = storedTasks.filter((task) => task.id !== id);
+        localStorage.setItem("Task", JSON.stringify(filteredTasks));
     };
 
     const pendingTasks = JSON.parse(localStorage.getItem("acceptedTasks")) || {};
