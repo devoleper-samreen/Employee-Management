@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from "./pages/Login"
-import Signup from './components/auth/Signup'
+import Signup from './components/auth/Signup.jsx'
 import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/admin/CreateTaskForm"
