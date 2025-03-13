@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from "./pages/Login"
-import Signup from './components/auth/Signup.jsx'
+import SignupPage from './pages/Signup'
 import EmplyeeDashboardPage from './pages/EmplyeeDashboard'
 import AdminDashboardpage from './pages/AdminDashboardpage'
 import CreateTaskForm from "./components/admin/CreateTaskForm"
@@ -18,7 +18,7 @@ function App() {
           {/* public route */}
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
+          <Route path='/signup' element={<SignupPage />} />
 
           {/* protected route */}
           <Route element={<ProtectedRoute />}>
