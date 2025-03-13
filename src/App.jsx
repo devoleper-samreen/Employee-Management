@@ -1,4 +1,3 @@
-import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from "./pages/Login"
 import Signup from './components/auth/Signup'
@@ -24,9 +23,6 @@ function App() {
           {/* protected route */}
           <Route element={<ProtectedRoute />}>
             <Route path={`/dashboard/employee`} element={<EmplyeeDashboardPage />} />
-          </Route>
-
-          <Route element={<ProtectedRoute />}>
             <Route path={`/dashboard/admin`} element={<AdminDashboardpage />} />
             <Route path='/create-task' element={<CreateTaskForm />} />
           </Route>

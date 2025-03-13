@@ -8,11 +8,7 @@
 body {
     color: white;
     background-color: #111111;
-    max-width: 1100px;
+    max-width: 1050px;
     margin: auto;
     padding: 15px;
 }
-
-/* #task-list::-webkit-scrollbar {
-    display: none;
-} */

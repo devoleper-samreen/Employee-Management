@@ -1,13 +1,12 @@
 import { create } from "zustand";
-import { getTasks } from "../utils/adminLocalStorage"
 
 const useTaskStore = create(
     (set) => ({
-        tasks: getTasks() || [],
+        tasks: JSON.parse(localStorage.getItem("Task")) || [],
         addTask: (newTasks) => set((state) => ({
             tasks: [...newTasks]
         })),
-        refreshTasks: () => set({ tasks: getTasks() })
+        refreshTasks: () => set({ tasks: JSON.parse(localStorage.getItem("Task")) })
     })
 )
 

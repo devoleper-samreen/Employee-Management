@@ -16,7 +16,6 @@ function TaskDashboard() {
     useEffect(() => {
         const assignedTasks = tasks.filter((task) => user?.name === task.assignTo);
         setMyTask(assignedTasks);
-        // localStorage.setItem("Task", JSON.stringify(assignedTasks));
         addMyTask(assignedTasks);
     }, [tasks, user, addMyTask]);
 

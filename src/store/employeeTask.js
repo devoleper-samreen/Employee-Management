@@ -1,9 +1,8 @@
 import { create } from "zustand";
-import { getTasks } from "../utils/employeeLocalStorage"
 
 const useEmployeeTaskStore = create(
     (set, get) => ({
-        myTasks: getTasks() || [],
+        myTasks: JSON.parse(localStorage.getItem("Task")) || [],
         addMyTask: (allTasks) => {
             const currentTasks = get().myTasks;
 
